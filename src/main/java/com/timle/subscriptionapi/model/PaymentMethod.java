@@ -26,11 +26,11 @@ public class PaymentMethod{
         return cardHolder;
     }
 
-    public String lastFourDigits(){
+    public String getLastFourDigits(){
         return lastFourDigits;
     }
 
-    public String cardType(){
+    public String getCardType(){
         return cardType;
     }
 
