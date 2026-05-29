@@ -10,6 +10,7 @@ The project currently uses in-memory lists for storage, so data is reset every t
 - Spring Boot 4
 - Spring Web
 - Maven Wrapper
+- Docker
 
 ## Project Structure
 
@@ -33,6 +34,7 @@ src/main/java/com/timle/subscriptionapi
 ### Prerequisites
 
 - Java 21 or newer
+- Docker Desktop, if running the app in a container
 - No separate Maven installation is required because the project includes the Maven Wrapper.
 
 ### Run the Application
@@ -53,6 +55,52 @@ The API starts at:
 
 ```text
 http://localhost:8080
+```
+
+### Build and Run with Docker
+
+First build the jar:
+
+On Windows:
+
+```powershell
+.\mvnw.cmd clean package
+```
+
+On macOS/Linux:
+
+```bash
+./mvnw clean package
+```
+
+Then build the Docker image:
+
+```bash
+docker build -t subscription-api .
+```
+
+Run the container on the default port:
+
+```bash
+docker run -p 8080:8080 subscription-api
+```
+
+The API starts at:
+
+```text
+http://localhost:8080
+```
+
+The application also supports setting the port with the `PORT` environment variable:
+
+```bash
+docker run -e PORT=9090 -p 9090:9090 subscription-api
+```
+
+With this command, the API starts at:
+
+```text
+http://localhost:9090
 ```
 
 ### Run Tests
